@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head>
+    <h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+<h:body>
+    <h:form>
+        <!--@elvariable id="backingBean" type="com.ris.bean.BackingBean"-->
+        <h:panelGroup>
+            <h:outputLabel for="poster" value="Poster: "/>
+            <h:inputText id="poster" value="#{backingBean.poster}"/>
+
+            <h:outputLabel for="name" value="Name: "/>
+            <h:inputText id="name" value="#{backingBean.name}"/>
+
+
+            <h:outputLabel for="cost" value="Cost: "/>
+            <h:inputText id="cost" value="#{backingBean.cost}"/>
+
+            <h:commandLink id="form"
+                           value="Submit"
+                           action="#{backingBean.add()}">
+            </h:commandLink>
+            <div>
+                <ui:fragment rendered="#{backingBean.getShoppingModelList().isEmpty() == false}">
+                    <table>
+                        <tr>
+                            <td>Oglasi</td>
+                            <td></td>
+                        </tr>
+                        <ui:repeat value="#{backingBean.getShoppingModelList()}" var="var">
+                            <tr>
+                                <td>Poster:</td>
+                                <td><h:outputText value="#{var.poster}"/></td>
+                            </tr>
+                            <tr>
+                                <td>Name:</td>
+                                <td><h:outputText value="#{var.name}"/></td>
+                            </tr>
+                            <tr>
+                                <td>Cost:</td>
+                                <td><h:outputText value="#{var.cost}"/></td>
+                            </tr>
+                        </ui:repeat>
+                    </table>
+                </ui:fragment>
+            </div>
+        </h:panelGroup>
+    </h:form>
+</h:body>
+</html>

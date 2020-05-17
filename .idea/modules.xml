@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/seminarska2/example.smallest.iml" filepath="$PROJECT_DIR$/seminarska2/example.smallest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ris.iml" filepath="$PROJECT_DIR$/.idea/ris.iml" />
+      <module fileurl="file://$PROJECT_DIR$/seminarska2/seminarska2.iml" filepath="$PROJECT_DIR$/seminarska2/seminarska2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/seminarska2/spring-boot-jsf.iml" filepath="$PROJECT_DIR$/seminarska2/spring-boot-jsf.iml" />
+    </modules>
+  </component>
+</project>
