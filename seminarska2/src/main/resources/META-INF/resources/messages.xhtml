@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head>
+</h:head>
+<h:body>
+    <h:form>
+        <!--@elvariable id="backingBean" type="com.ris.bean.BackingBean"-->
+        <!--@elvariable id="sporociloBean" type="com.ris.bean.SporociloBean"-->
+        <h:panelGroup>
+            <div>
+                <h:outputText value="Prijeta sporočila: "/>
+                <br />
+                <br />
+                <h:outputText value="Sporočilo od Luke Skywalkerja: Pozdravljeni, kupil bi vašo kitaro."/>
+            </div>
+            <br />
+            <br />
+            <div>
+                <ui:fragment rendered="#{sporociloBean.get().isEmpty() == false}">
+                    <h:outputText value="NOVO SPOROČILO!"/>
+                    <h:outputText value="Velja se dobima na kongrescu ob 10ih. Lp."/>
+                </ui:fragment>
+            </div>
+
+            <h:outputLabel for="msg" value="Sporočila: "/>
+            <h:inputTextarea id="msg" value="#{sporociloBean.sporocila}"/>
+
+            <h:commandLink id="form"
+                           value="Submit"
+                           action="#{sporociloBean.add()}">
+            </h:commandLink>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div>
+                <ui:fragment rendered="#{sporociloBean.get().isEmpty() == false}">
+                    <table>
+                        <tr>
+                            <td>Poslana sporočila:</td>
+                            <td></td>
+                        </tr>
+                        <ui:repeat value="#{sporociloBean.get()}" var="var">
+                            <tr>
+                                <td>sporocila:</td>
+                                <td><h:outputText value="#{var.sporocila}"/></td>
+                            </tr>
+                            <tr>
+                                <td>datum:</td>
+                                <td><h:outputText value="#{var.datum}"/></td>
+                            </tr>
+                            <tr>
+                                <td>poslal:</td>
+                                <td><h:outputText value="#{var.poslal}"/></td>
+                            </tr>
+                            <tr>
+                                <td>sprejel:</td>
+                                <td><h:outputText value="#{var.sprejel}"/></td>
+                            </tr>
+                        </ui:repeat>
+                    </table>
+                </ui:fragment>
+            </div>
+
+        </h:panelGroup>
+    </h:form>
+</h:body>
+</html>

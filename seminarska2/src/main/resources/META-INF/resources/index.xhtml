@@ -3,51 +3,53 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 >
 <h:head>
-    <h:outputStylesheet library="css" name="styles.css"/>
 </h:head>
 <h:body>
     <h:form>
         <!--@elvariable id="backingBean" type="com.ris.bean.BackingBean"-->
+        <!--@elvariable id="prodajaBean" type="com.ris.bean.ProdajaBean"-->
         <h:panelGroup>
-            <h:outputLabel for="poster" value="Poster: "/>
-            <h:inputText id="poster" value="#{backingBean.poster}"/>
+            <h:outputLabel for="artikel" value="artikel: "/>
+            <h:inputText id="artikel" value="#{prodajaBean.artikel}"/>
 
-            <h:outputLabel for="name" value="Name: "/>
-            <h:inputText id="name" value="#{backingBean.name}"/>
+            <h:outputLabel for="cena" value="cena: "/>
+            <h:inputText id="cena" value="#{prodajaBean.cena}"/>
 
 
-            <h:outputLabel for="cost" value="Cost: "/>
-            <h:inputText id="cost" value="#{backingBean.cost}"/>
+            <h:outputLabel for="zaloga" value="zaloga: "/>
+            <h:inputText id="zaloga" value="#{prodajaBean.zaloga}"/>
 
             <h:commandLink id="form"
                            value="Submit"
-                           action="#{backingBean.add()}">
+                           action="#{prodajaBean.add()}">
             </h:commandLink>
             <div>
-                <ui:fragment rendered="#{backingBean.getShoppingModelList().isEmpty() == false}">
+                <ui:fragment rendered="#{prodajaBean.get().isEmpty() == false}">
                     <table>
                         <tr>
                             <td>Oglasi</td>
                             <td></td>
                         </tr>
-                        <ui:repeat value="#{backingBean.getShoppingModelList()}" var="var">
+                        <ui:repeat value="#{prodajaBean.get()}" var="var">
                             <tr>
-                                <td>Poster:</td>
-                                <td><h:outputText value="#{var.poster}"/></td>
+                                <td>artikel:</td>
+                                <td><h:outputText value="#{var.artikel}"/></td>
                             </tr>
                             <tr>
-                                <td>Name:</td>
-                                <td><h:outputText value="#{var.name}"/></td>
+                                <td>cena:</td>
+                                <td><h:outputText value="#{var.cena}"/></td>
                             </tr>
                             <tr>
-                                <td>Cost:</td>
-                                <td><h:outputText value="#{var.cost}"/></td>
+                                <td>zaloga:</td>
+                                <td><h:outputText value="#{var.zaloga}"/></td>
                             </tr>
                         </ui:repeat>
                     </table>
                 </ui:fragment>
             </div>
         </h:panelGroup>
+
+        <h:commandButton value="Preglej sporočila: " action="messages.xhtml" />
     </h:form>
 </h:body>
 </html>
